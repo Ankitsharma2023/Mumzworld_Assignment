@@ -1,0 +1,17 @@
+{
+  "sku": "STR-DOONA-01",
+  "category": "stroller",
+  "title_en": "Doona X Convertible Car Seat & Stroller (Nitro Black)",
+  "title_ar": "دونا إكس - كرسي سيارة قابل للتحويل إلى عربة (أسود نيترو)",
+  "description_en": "Converts from infant car seat to stroller in seconds. ECE R129 certified. Suitable from birth to 13 kg. Five-point harness, machine-washable insert.",
+  "description_ar": "يتحول من كرسي سيارة للأطفال إلى عربة في ثوانٍ. حاصل على شهادة ECE R129. مناسب من الولادة وحتى 13 كجم. حزام أمان بخمس نقاط، مع بطانة قابلة للغسل بالغسالة.",
+  "image_url": "https://images.pexels.com/photos/4148842/pexels-photo-4148842.jpeg",
+  "attributes": {
+    "brand": "Doona",
+    "age_range": "0-12m",
+    "max_weight_kg": 13,
+    "foldable": true,
+    "weight_kg": 7.0,
+    "harness_type": "5-point"
+  }
+}

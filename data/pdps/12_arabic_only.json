@@ -1,0 +1,16 @@
+{
+  "sku": "BTL-LOCAL-12",
+  "category": "bottle",
+  "title_en": null,
+  "title_ar": "رضّاعة زجاجية للأطفال 240 مل، مع حلمة سيليكون مرنة",
+  "description_en": null,
+  "description_ar": "رضّاعة من الزجاج البورسليكاتي المقاوم للحرارة بسعة 240 مل. حلمة سيليكون مرنة بثلاث فتحات لتدفّق متوسط. خالية من البيسفينول-A.",
+  "image_url": "https://images.pexels.com/photos/3933273/pexels-photo-3933273.jpeg",
+  "attributes": {
+    "brand": "Local",
+    "material": "borosilicate glass",
+    "capacity_ml": 240,
+    "age_range": "3m+",
+    "bpa_free": true
+  }
+}

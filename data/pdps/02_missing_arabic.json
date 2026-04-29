@@ -1,0 +1,16 @@
+{
+  "sku": "BTL-AVENT-02",
+  "category": "bottle",
+  "title_en": "Philips Avent Natural Response Bottle 260ml (3-pack)",
+  "title_ar": null,
+  "description_en": "Soft, breast-shaped silicone teat with natural-response valve. BPA-free polypropylene. Suitable from 1 month.",
+  "description_ar": null,
+  "image_url": "https://images.pexels.com/photos/3933280/pexels-photo-3933280.jpeg",
+  "attributes": {
+    "brand": "Philips Avent",
+    "material": "polypropylene",
+    "capacity_ml": 260,
+    "age_range": "1m+",
+    "bpa_free": true
+  }
+}

@@ -1,0 +1,929 @@
+{
+  "n_cases": 17,
+  "n_passed": 12,
+  "cases": [
+    {
+      "fixture": "01_clean_stroller.json",
+      "passed": true,
+      "failures": [],
+      "audit_dict": {
+        "sku": "STR-DOONA-01",
+        "auditable": true,
+        "refusal_reason": null,
+        "quality_score": 92,
+        "score_rationale": "All required stroller attributes present, AR copy reads natively, claims are backed by certification.",
+        "issues": [],
+        "suggested_fixes": [],
+        "generated_ar_title": null,
+        "generated_ar_description": null,
+        "model_used": "openai/gpt-4o-mini",
+        "audit_version": "0.1.0"
+      },
+      "score_band_hit": true,
+      "issue_recall_hit": true,
+      "issue_precision_hit": true,
+      "refusal_correct": true,
+      "schema_valid": true,
+      "elapsed_s": 5.05
+    },
+    {
+      "fixture": "02_missing_arabic.json",
+      "passed": true,
+      "failures": [],
+      "audit_dict": {
+        "sku": "BTL-AVENT-02",
+        "auditable": true,
+        "refusal_reason": null,
+        "quality_score": 65,
+        "score_rationale": "Missing Arabic content and safety information for a bottle; claims are supported by attributes.",
+        "issues": [
+          {
+            "type": "missing_arabic",
+            "severity": "high",
+            "field": "title_ar",
+            "evidence": "Arabic title is null.",
+            "confidence": 1.0
+          },
+          {
+            "type": "missing_arabic",
+            "severity": "high",
+            "field": "description_ar",
+            "evidence": "Arabic description is null.",
+            "confidence": 1.0
+          },
+          {
+            "type": "safety_info_missing",
+            "severity": "medium",
+            "field": null,
+            "evidence": "No safety information provided for the bottle category.",
+            "confidence": 0.9
+          }
+        ],
+        "suggested_fixes": [
+          {
+            "field": "title_ar",
+            "current": null,
+            "suggested": "زجاجة فيليبس أفينت بتصميم استجابة طبيعية 260 مل (عبوة 3)",
+            "reasoning": "Provide a native Arabic title to meet bilingual requirements.",
+            "confidence": 0.95
+          },
+          {
+            "field": "description_ar",
+            "current": null,
+            "suggested": "حلمة سيليكون ناعمة على شكل ثدي مع صمام استجابة طبيعية. مصنوعة من مادة البولي بروبيلين خالية من BPA. مناسبة من عمر شهر.",
+            "reasoning": "Add a native Arabic description to ensure completeness.",
+            "confidence": 0.95
+          }
+        ],
+        "generated_ar_title": null,
+        "generated_ar_description": null,
+        "model_used": "openai/gpt-4o-mini",
+        "audit_version": "0.1.0"
+      },
+      "score_band_hit": true,
+      "issue_recall_hit": true,
+      "issue_precision_hit": true,
+      "refusal_correct": true,
+      "schema_valid": true,
+      "elapsed_s": 7.26
+    },
+    {
+      "fixture": "03_literal_translation_arabic.json",
+      "passed": true,
+      "failures": [],
+      "audit_dict": {
+        "sku": "DIA-ULTRA-03",
+        "auditable": true,
+        "refusal_reason": null,
+        "quality_score": 42,
+        "score_rationale": "Arabic is literally translated and grammatically broken; English title makes an unsupported 'doctor recommended' claim; absorbency attribute is missing.",
+        "issues": [
+          {
+            "type": "weak_arabic",
+            "severity": "high",
+            "field": "title_ar",
+            "evidence": "'طبيب أوصى' is a literal word-for-word translation of 'doctor recommended' and is ungrammatical in Arabic.",
+            "confidence": 0.95
+          },
+          {
+            "type": "weak_arabic",
+            "severity": "high",
+            "field": "description_ar",
+            "evidence": "'يحافظ الطفل جاف' is broken Arabic; correct phrasing requires a different verb structure.",
+            "confidence": 0.93
+          },
+          {
+            "type": "unsupported_claim",
+            "severity": "medium",
+            "field": "title_en",
+            "evidence": "'Doctor Recommended' appears with no certification or source attribute.",
+            "confidence": 0.88
+          },
+          {
+            "type": "attribute_gap",
+            "severity": "medium",
+            "field": "attributes.absorbency",
+            "evidence": "absorbency is required for category 'diaper' and is not provided.",
+            "confidence": 1.0
+          }
+        ],
+        "suggested_fixes": [
+          {
+            "field": "title_en",
+            "current": "UltraDry Diapers, Doctor Recommended, Size 3, 60 count",
+            "suggested": "UltraDry Diapers, Size 3, 60-count",
+            "reasoning": "Remove the unsupported 'Doctor Recommended' claim and tighten formatting.",
+            "confidence": 0.9
+          },
+          {
+            "field": "description_en",
+            "current": "Best diaper. Keeps baby dry. Premium quality.",
+            "suggested": "Soft-touch diaper with a dry-feel topsheet and elastic leg cuffs to reduce leaks.",
+            "reasoning": "Replace the unsupported superlative with a concrete material claim.",
+            "confidence": 0.7
+          }
+        ],
+        "generated_ar_title": "حفاضات ألترا دراي، مقاس 3، عبوة 60 حبة",
+        "generated_ar_description": "حفاضات بملمس ناعم وطبقة علوية تمتص الرطوبة بسرعة، مع حواف مرنة عند الساقين لتقليل التسرب.",
+        "model_used": "openai/gpt-4o-mini",
+        "audit_version": "0.1.0"
+      },
+      "score_band_hit": true,
+      "issue_recall_hit": true,
+      "issue_precision_hit": true,
+      "refusal_correct": true,
+      "schema_valid": true,
+      "elapsed_s": 11.93
+    },
+    {
+      "fixture": "04_unsupported_claim.json",
+      "passed": true,
+      "failures": [],
+      "audit_dict": {
+        "sku": "CST-NUNA-04",
+        "auditable": true,
+        "refusal_reason": null,
+        "quality_score": 55,
+        "score_rationale": "Missing critical safety information and unsupported claims in both languages.",
+        "issues": [
+          {
+            "type": "unsupported_claim",
+            "severity": "high",
+            "field": "title_en",
+            "evidence": "'The Safest Car Seat Ever Made' is a subjective claim without supporting evidence.",
+            "confidence": 0.9
+          },
+          {
+            "type": "unsupported_claim",
+            "severity": "high",
+            "field": "description_en",
+            "evidence": "'Doctor recommended' appears with no certification or source attribute.",
+            "confidence": 0.88
+          },
+          {
+            "type": "safety_info_missing",
+            "severity": "high",
+            "field": null,
+            "evidence": "Safety information is not provided, which is critical for car seat category.",
+            "confidence": 1.0
+          },
+          {
+            "type": "safety_info_missing",
+            "severity": "high",
+            "field": "attributes.weight_range_kg",
+            "evidence": "Required attribute 'weight_range_kg' for category 'car_seat' is missing from the listing.",
+            "confidence": 1.0
+          },
+          {
+            "type": "safety_info_missing",
+            "severity": "high",
+            "field": "attributes.ece_certification",
+            "evidence": "Required attribute 'ece_certification' for category 'car_seat' is missing from the listing.",
+            "confidence": 1.0
+          },
+          {
+            "type": "safety_info_missing",
+            "severity": "high",
+            "field": "attributes.isofix",
+            "evidence": "Required attribute 'isofix' for category 'car_seat' is missing from the listing.",
+            "confidence": 1.0
+          }
+        ],
+        "suggested_fixes": [
+          {
+            "field": "title_en",
+            "current": "Nuna Pipa Lite — The Safest Car Seat Ever Made",
+            "suggested": "Nuna Pipa Lite — Lightweight and Safe Car Seat",
+            "reasoning": "Remove the unsupported claim and focus on factual attributes.",
+            "confidence": 0.9
+          },
+          {
+            "field": "description_en",
+            "current": "Award-winning. Doctor recommended. Crash tested. Ultra-light frame for easy carrying.",
+            "suggested": "Crash tested with a lightweight design for easy carrying.",
+            "reasoning": "Remove unsupported claims and focus on verifiable features.",
+            "confidence": 0.85
+          }
+        ],
+        "generated_ar_title": "كرسي سيارة نونا بيبا لايت — خفيف وآمن",
+        "generated_ar_description": "مختبر للتصادم مع تصميم خفيف لسهولة الحمل.",
+        "model_used": "openai/gpt-4o-mini",
+        "audit_version": "0.1.0"
+      },
+      "score_band_hit": true,
+      "issue_recall_hit": true,
+      "issue_precision_hit": true,
+      "refusal_correct": true,
+      "schema_valid": true,
+      "elapsed_s": 6.36
+    },
+    {
+      "fixture": "05_missing_age_range_toy.json",
+      "passed": false,
+      "failures": [
+        "must_flag missing: ['missing_age_range']",
+        "score 88 outside band (45, 80)"
+      ],
+      "audit_dict": {
+        "sku": "TOY-WOOD-05",
+        "auditable": true,
+        "refusal_reason": null,
+        "quality_score": 88,
+        "score_rationale": "All required attributes are present, but safety information is missing for a toy category.",
+        "issues": [
+          {
+            "type": "safety_info_missing",
+            "severity": "high",
+            "field": null,
+            "evidence": "Safety information regarding age suitability and small parts warning is not explicitly stated.",
+            "confidence": 0.95
+          },
+          {
+            "type": "safety_info_missing",
+            "severity": "high",
+            "field": "attributes.age_range",
+            "evidence": "Required attribute 'age_range' for category 'toy' is missing from the listing.",
+            "confidence": 1.0
+          }
+        ],
+        "suggested_fixes": [
+          {
+            "field": "attributes.age_range",
+            "current": null,
+            "suggested": "2+ years",
+            "reasoning": "Adding an age range is crucial for safety and compliance in the toy category.",
+            "confidence": 0.9
+          }
+        ],
+        "generated_ar_title": "حلقات تكديس خشبية",
+        "generated_ar_description": "لعبة تكديس حلقات خشبية كلاسيكية بألوان زاهية وآمنة. تساعد على تطوير المهارات الحركية الدقيقة والتعرّف على الألوان.",
+        "model_used": "openai/gpt-4o-mini",
+        "audit_version": "0.1.0"
+      },
+      "score_band_hit": false,
+      "issue_recall_hit": false,
+      "issue_precision_hit": true,
+      "refusal_correct": true,
+      "schema_valid": true,
+      "elapsed_s": 5.73
+    },
+    {
+      "fixture": "06_attribute_gap_diaper.json",
+      "passed": true,
+      "failures": [],
+      "audit_dict": {
+        "sku": "DIA-PAMP-06",
+        "auditable": true,
+        "refusal_reason": null,
+        "quality_score": 68,
+        "score_rationale": "Missing absorbency attribute and safety information; claims in description are not fully supported.",
+        "issues": [
+          {
+            "type": "attribute_gap",
+            "severity": "medium",
+            "field": "attributes.absorbency",
+            "evidence": "Absorbency is required for category 'diaper' and is not provided.",
+            "confidence": 1.0
+          },
+          {
+            "type": "safety_info_missing",
+            "severity": "high",
+            "field": null,
+            "evidence": "Safety information for diaper use is not mentioned.",
+            "confidence": 0.9
+          },
+          {
+            "type": "attribute_gap",
+            "severity": "medium",
+            "field": "attributes.count_per_pack",
+            "evidence": "Required attribute 'count_per_pack' for category 'diaper' is missing from the listing.",
+            "confidence": 1.0
+          }
+        ],
+        "suggested_fixes": [
+          {
+            "field": "attributes.absorbency",
+            "current": null,
+            "suggested": "12-hour absorbency",
+            "reasoning": "Absorbency is a critical attribute for diapers and should be included.",
+            "confidence": 1.0
+          },
+          {
+            "field": "description_en",
+            "current": "Soft cotton-like outer with breathable layers. 12-hour dryness with wetness indicator.",
+            "suggested": "Soft cotton-like outer with breathable layers. Designed for 12-hour absorbency with a wetness indicator for convenience.",
+            "reasoning": "Clarifies the absorbency claim and aligns with the suggested absorbency attribute.",
+            "confidence": 0.8
+          }
+        ],
+        "generated_ar_title": "بامبرز بريميوم كير بنطلون، مقاس 4 (96 قطعة)",
+        "generated_ar_description": "طبقة خارجية ناعمة بملمس قطني مع طبقات تسمح بمرور الهواء. مصممة لجفاف يدوم حتى 12 ساعة مع مؤشر للبلل.",
+        "model_used": "openai/gpt-4o-mini",
+        "audit_version": "0.1.0"
+      },
+      "score_band_hit": true,
+      "issue_recall_hit": true,
+      "issue_precision_hit": true,
+      "refusal_correct": true,
+      "schema_valid": true,
+      "elapsed_s": 7.11
+    },
+    {
+      "fixture": "07_title_image_mismatch.json",
+      "passed": false,
+      "failures": [
+        "must_flag missing: ['title_description_mismatch']"
+      ],
+      "audit_dict": {
+        "sku": "STR-CYBEX-07",
+        "auditable": true,
+        "refusal_reason": null,
+        "quality_score": 68,
+        "score_rationale": "The title and description are consistent, but the color attribute does not match the title; safety information is missing for the stroller category.",
+        "issues": [
+          {
+            "type": "attribute_gap",
+            "severity": "medium",
+            "field": "attributes.color",
+            "evidence": "Color is listed as 'blush pink' but title states 'Sky Blue'.",
+            "confidence": 1.0
+          },
+          {
+            "type": "safety_info_missing",
+            "severity": "high",
+            "field": null,
+            "evidence": "Safety information is not provided for a stroller, which is critical.",
+            "confidence": 1.0
+          }
+        ],
+        "suggested_fixes": [
+          {
+            "field": "attributes.color",
+            "current": "blush pink",
+            "suggested": "sky blue",
+            "reasoning": "Align the color attribute with the title for consistency.",
+            "confidence": 0.9
+          },
+          {
+            "field": "description_en",
+            "current": "Compact city stroller with one-hand fold. Suitable from 6 months.",
+            "suggested": "Compact city stroller with one-hand fold. Suitable from 6 months. Safety tested and certified.",
+            "reasoning": "Add safety information to meet category requirements.",
+            "confidence": 0.8
+          }
+        ],
+        "generated_ar_title": "سايبكس ميوس — أزرق سماوي",
+        "generated_ar_description": "عربة مدينة مدمجة قابلة للطي بيد واحدة. مناسبة من عمر 6 أشهر. تم اختبارها والحصول على شهادة السلامة.",
+        "model_used": "openai/gpt-4o-mini",
+        "audit_version": "0.1.0"
+      },
+      "score_band_hit": true,
+      "issue_recall_hit": false,
+      "issue_precision_hit": true,
+      "refusal_correct": true,
+      "schema_valid": true,
+      "elapsed_s": 6.56
+    },
+    {
+      "fixture": "08_too_sparse_refuse.json",
+      "passed": true,
+      "failures": [],
+      "audit_dict": {
+        "sku": "MISC-08",
+        "auditable": false,
+        "refusal_reason": "Input has no title, description, or image. Cannot audit.",
+        "quality_score": null,
+        "score_rationale": null,
+        "issues": [],
+        "suggested_fixes": [],
+        "generated_ar_title": null,
+        "generated_ar_description": null,
+        "model_used": "(no LLM call)",
+        "audit_version": "0.1.0"
+      },
+      "score_band_hit": null,
+      "issue_recall_hit": true,
+      "issue_precision_hit": true,
+      "refusal_correct": true,
+      "schema_valid": true,
+      "elapsed_s": 0.0
+    },
+    {
+      "fixture": "09_clean_bottle.json",
+      "passed": true,
+      "failures": [],
+      "audit_dict": {
+        "sku": "BTL-MAM-09",
+        "auditable": true,
+        "refusal_reason": null,
+        "quality_score": 85,
+        "score_rationale": "All required attributes for the bottle category are present, but the image does not depict the product.",
+        "issues": [
+          {
+            "type": "image_quality",
+            "severity": "high",
+            "field": "image_url",
+            "evidence": "The image shows a child in a bathtub with balls, not the MAM bottle.",
+            "confidence": 1.0
+          }
+        ],
+        "suggested_fixes": [
+          {
+            "field": "image_url",
+            "current": "https://images.pexels.com/photos/3933272/pexels-photo-3933272.jpeg",
+            "suggested": "URL of the actual MAM Easy Start Anti-Colic Bottle image.",
+            "reasoning": "The current image does not represent the product being sold.",
+            "confidence": 1.0
+          }
+        ],
+        "generated_ar_title": null,
+        "generated_ar_description": null,
+        "model_used": "openai/gpt-4o-mini",
+        "audit_version": "0.1.0"
+      },
+      "score_band_hit": true,
+      "issue_recall_hit": true,
+      "issue_precision_hit": true,
+      "refusal_correct": true,
+      "schema_valid": true,
+      "elapsed_s": 13.05
+    },
+    {
+      "fixture": "10_safety_attrs_missing_carseat.json",
+      "passed": false,
+      "failures": [
+        "score 68 outside band (15, 55)"
+      ],
+      "audit_dict": {
+        "sku": "CST-GENERIC-10",
+        "auditable": true,
+        "refusal_reason": null,
+        "quality_score": 68,
+        "score_rationale": "Missing safety information for car seat category; claims are vague and attributes are incomplete.",
+        "issues": [
+          {
+            "type": "safety_info_missing",
+            "severity": "high",
+            "field": null,
+            "evidence": "Safety information for car seats is not provided.",
+            "confidence": 1.0
+          },
+          {
+            "type": "attribute_gap",
+            "severity": "medium",
+            "field": "attributes.max_weight_kg",
+            "evidence": "Max weight attribute is required for car seats and is not provided.",
+            "confidence": 1.0
+          },
+          {
+            "type": "safety_info_missing",
+            "severity": "high",
+            "field": "attributes.weight_range_kg",
+            "evidence": "Required attribute 'weight_range_kg' for category 'car_seat' is missing from the listing.",
+            "confidence": 1.0
+          },
+          {
+            "type": "safety_info_missing",
+            "severity": "high",
+            "field": "attributes.ece_certification",
+            "evidence": "Required attribute 'ece_certification' for category 'car_seat' is missing from the listing.",
+            "confidence": 1.0
+          },
+          {
+            "type": "safety_info_missing",
+            "severity": "high",
+            "field": "attributes.isofix",
+            "evidence": "Required attribute 'isofix' for category 'car_seat' is missing from the listing.",
+            "confidence": 1.0
+          }
+        ],
+        "suggested_fixes": [
+          {
+            "field": "attributes.max_weight_kg",
+            "current": null,
+            "suggested": "18",
+            "reasoning": "Add a maximum weight limit to comply with safety standards for car seats.",
+            "confidence": 0.9
+          },
+          {
+            "field": "description_en",
+            "current": "Comfortable padded car seat suitable for daily use. Easy to install.",
+            "suggested": "Comfortable padded car seat suitable for daily use, featuring a 5-point harness and side impact protection. Easy to install.",
+            "reasoning": "Enhance the description to include safety features that are critical for car seats.",
+            "confidence": 0.8
+          }
+        ],
+        "generated_ar_title": "كرسي سيارة شامل — أسود",
+        "generated_ar_description": "كرسي سيارة مبطّن ومريح للاستخدام اليومي، مزود بحزام أمان 5 نقاط وحماية من الصدمات الجانبية. سهل التركيب.",
+        "model_used": "openai/gpt-4o-mini",
+        "audit_version": "0.1.0"
+      },
+      "score_band_hit": false,
+      "issue_recall_hit": true,
+      "issue_precision_hit": true,
+      "refusal_correct": true,
+      "schema_valid": true,
+      "elapsed_s": 7.04
+    },
+    {
+      "fixture": "11_generic_padding.json",
+      "passed": false,
+      "failures": [
+        "must_flag missing: ['generic_padding']"
+      ],
+      "audit_dict": {
+        "sku": "TOY-XYZ-11",
+        "auditable": true,
+        "refusal_reason": null,
+        "quality_score": 60,
+        "score_rationale": "The product description contains unsupported claims and lacks essential attributes for safety.",
+        "issues": [
+          {
+            "type": "unsupported_claim",
+            "severity": "medium",
+            "field": "description_en",
+            "evidence": "The best toy for your baby. High quality. You will love it.",
+            "confidence": 0.85
+          },
+          {
+            "type": "attribute_gap",
+            "severity": "high",
+            "field": "attributes.age_range",
+            "evidence": "Age range is not provided, which is essential for toys.",
+            "confidence": 1.0
+          },
+          {
+            "type": "safety_info_missing",
+            "severity": "high",
+            "field": null,
+            "evidence": "Safety information relevant for toys is not mentioned.",
+            "confidence": 1.0
+          },
+          {
+            "type": "safety_info_missing",
+            "severity": "high",
+            "field": "attributes.small_parts_warning",
+            "evidence": "Required attribute 'small_parts_warning' for category 'toy' is missing from the listing.",
+            "confidence": 1.0
+          }
+        ],
+        "suggested_fixes": [
+          {
+            "field": "description_en",
+            "current": "The best toy for your baby. High quality. You will love it. Buy now!",
+            "suggested": "A fun and engaging toy designed for safe play, made from high-quality plastic.",
+            "reasoning": "Replace unsupported claims with factual descriptions about safety and material.",
+            "confidence": 0.8
+          },
+          {
+            "field": "attributes.age_range",
+            "current": null,
+            "suggested": "2-4 years",
+            "reasoning": "Add an age range to inform parents about suitability.",
+            "confidence": 0.9
+          }
+        ],
+        "generated_ar_title": "لعبة مميزة وعالية الجودة — يجب اقتناؤها!",
+        "generated_ar_description": "لعبة ممتعة وآمنة مصممة للعب الآمن، مصنوعة من بلاستيك عالي الجودة.",
+        "model_used": "openai/gpt-4o-mini",
+        "audit_version": "0.1.0"
+      },
+      "score_band_hit": true,
+      "issue_recall_hit": false,
+      "issue_precision_hit": true,
+      "refusal_correct": true,
+      "schema_valid": true,
+      "elapsed_s": 7.27
+    },
+    {
+      "fixture": "12_arabic_only.json",
+      "passed": true,
+      "failures": [],
+      "audit_dict": {
+        "sku": "BTL-LOCAL-12",
+        "auditable": true,
+        "refusal_reason": null,
+        "quality_score": 65,
+        "score_rationale": "Missing English title and description; Arabic description is strong but lacks English counterpart, and safety information is not explicitly stated.",
+        "issues": [
+          {
+            "type": "missing_english",
+            "severity": "high",
+            "field": "title_en",
+            "evidence": "English title is null.",
+            "confidence": 1.0
+          },
+          {
+            "type": "missing_english",
+            "severity": "high",
+            "field": "description_en",
+            "evidence": "English description is null.",
+            "confidence": 1.0
+          },
+          {
+            "type": "safety_info_missing",
+            "severity": "medium",
+            "field": null,
+            "evidence": "Safety information regarding the use of the bottle is not provided.",
+            "confidence": 0.9
+          }
+        ],
+        "suggested_fixes": [
+          {
+            "field": "title_en",
+            "current": null,
+            "suggested": "Glass Baby Bottle 240ml with Flexible Silicone Nipple",
+            "reasoning": "Provide a clear English title to match the Arabic title.",
+            "confidence": 0.9
+          },
+          {
+            "field": "description_en",
+            "current": null,
+            "suggested": "Heat-resistant borosilicate glass baby bottle with a 240ml capacity. Flexible silicone nipple with three openings for medium flow. BPA-free.",
+            "reasoning": "Add a descriptive English version to match the Arabic description.",
+            "confidence": 0.9
+          }
+        ],
+        "generated_ar_title": null,
+        "generated_ar_description": null,
+        "model_used": "openai/gpt-4o-mini",
+        "audit_version": "0.1.0"
+      },
+      "score_band_hit": true,
+      "issue_recall_hit": true,
+      "issue_precision_hit": true,
+      "refusal_correct": true,
+      "schema_valid": true,
+      "elapsed_s": 6.59
+    },
+    {
+      "fixture": "13_supported_claims_adversarial.json",
+      "passed": true,
+      "failures": [],
+      "audit_dict": {
+        "sku": "BTL-MAM-13",
+        "auditable": true,
+        "refusal_reason": null,
+        "quality_score": 85,
+        "score_rationale": "All required attributes for the bottle category are present, but the image does not match the product type.",
+        "issues": [
+          {
+            "type": "title_image_mismatch",
+            "severity": "high",
+            "field": "image_url",
+            "evidence": "The image shows a child holding art supplies, not a bottle.",
+            "confidence": 1.0
+          }
+        ],
+        "suggested_fixes": [
+          {
+            "field": "image_url",
+            "current": "https://images.pexels.com/photos/3933280/pexels-photo-3933280.jpeg",
+            "suggested": "https://example.com/path/to/correct/bottle/image.jpeg",
+            "reasoning": "Replace with an image that accurately depicts the MAM Anti-Colic Bottle.",
+            "confidence": 0.9
+          }
+        ],
+        "generated_ar_title": null,
+        "generated_ar_description": null,
+        "model_used": "openai/gpt-4o-mini",
+        "audit_version": "0.1.0"
+      },
+      "score_band_hit": true,
+      "issue_recall_hit": true,
+      "issue_precision_hit": true,
+      "refusal_correct": true,
+      "schema_valid": true,
+      "elapsed_s": 5.7
+    },
+    {
+      "fixture": "14_minimal_but_auditable.json",
+      "passed": false,
+      "failures": [
+        "score 55 outside band (10, 50)"
+      ],
+      "audit_dict": {
+        "sku": "DIA-MIN-14",
+        "auditable": true,
+        "refusal_reason": null,
+        "quality_score": 55,
+        "score_rationale": "Missing Arabic title and description, and lacks required absorbency attribute for diapers.",
+        "issues": [
+          {
+            "type": "missing_arabic",
+            "severity": "high",
+            "field": "title_ar",
+            "evidence": "Arabic title is null.",
+            "confidence": 1.0
+          },
+          {
+            "type": "missing_arabic",
+            "severity": "high",
+            "field": "description_ar",
+            "evidence": "Arabic description is null.",
+            "confidence": 1.0
+          },
+          {
+            "type": "attribute_gap",
+            "severity": "medium",
+            "field": "attributes.absorbency",
+            "evidence": "Absorbency is required for category 'diaper' and is not provided.",
+            "confidence": 1.0
+          },
+          {
+            "type": "attribute_gap",
+            "severity": "medium",
+            "field": "attributes.count_per_pack",
+            "evidence": "Required attribute 'count_per_pack' for category 'diaper' is missing from the listing.",
+            "confidence": 1.0
+          }
+        ],
+        "suggested_fixes": [
+          {
+            "field": "title_ar",
+            "current": null,
+            "suggested": "حفاضات ناعمة، مقاس 2",
+            "reasoning": "Provide a native Arabic title to meet bilingual requirements.",
+            "confidence": 0.9
+          },
+          {
+            "field": "description_ar",
+            "current": null,
+            "suggested": "حفاضات ناعمة توفر راحة وجفاف مثالي للطفل.",
+            "reasoning": "Add a native Arabic description to enhance product information.",
+            "confidence": 0.9
+          },
+          {
+            "field": "attributes.absorbency",
+            "current": null,
+            "suggested": "high absorbency",
+            "reasoning": "Include absorbency attribute as it is essential for diapers.",
+            "confidence": 1.0
+          }
+        ],
+        "generated_ar_title": null,
+        "generated_ar_description": null,
+        "model_used": "openai/gpt-4o-mini",
+        "audit_version": "0.1.0"
+      },
+      "score_band_hit": false,
+      "issue_recall_hit": true,
+      "issue_precision_hit": true,
+      "refusal_correct": true,
+      "schema_valid": true,
+      "elapsed_s": 4.43
+    },
+    {
+      "fixture": "15_unknown_category.json",
+      "passed": true,
+      "failures": [],
+      "audit_dict": {
+        "sku": "MISC-MAT-15",
+        "auditable": true,
+        "refusal_reason": null,
+        "quality_score": 85,
+        "score_rationale": "All required attributes for maternity pillows are present, but the image quality is not optimal for product display.",
+        "issues": [
+          {
+            "type": "image_quality",
+            "severity": "medium",
+            "field": "image_url",
+            "evidence": "The image shows a child playing with blocks, not the maternity pillow.",
+            "confidence": 1.0
+          }
+        ],
+        "suggested_fixes": [
+          {
+            "field": "image_url",
+            "current": "https://images.pexels.com/photos/3933030/pexels-photo-3933030.jpeg",
+            "suggested": "https://example.com/path-to-correct-maternity-pillow-image.jpeg",
+            "reasoning": "Replace with an image that clearly shows the maternity pillow to enhance product visibility.",
+            "confidence": 0.9
+          }
+        ],
+        "generated_ar_title": "وسادة حمل بشكل حرف U مع غطاء مبرّد",
+        "generated_ar_description": "وسادة دعم كامل للجسم بشكل حرف U. غطاء مبرّد قابل للنزع والغسل بالغسالة.",
+        "model_used": "openai/gpt-4o-mini",
+        "audit_version": "0.1.0"
+      },
+      "score_band_hit": true,
+      "issue_recall_hit": true,
+      "issue_precision_hit": true,
+      "refusal_correct": true,
+      "schema_valid": true,
+      "elapsed_s": 5.7
+    },
+    {
+      "fixture": "16_inconsistent_languages.json",
+      "passed": true,
+      "failures": [],
+      "audit_dict": {
+        "sku": "STR-MIX-16",
+        "auditable": true,
+        "refusal_reason": null,
+        "quality_score": 68,
+        "score_rationale": "Missing English description and Arabic title; safety information is not provided for stroller category.",
+        "issues": [
+          {
+            "type": "missing_arabic",
+            "severity": "high",
+            "field": "title_ar",
+            "evidence": "Arabic title is null.",
+            "confidence": 1.0
+          },
+          {
+            "type": "missing_english",
+            "severity": "high",
+            "field": "description_en",
+            "evidence": "English description is null.",
+            "confidence": 1.0
+          },
+          {
+            "type": "safety_info_missing",
+            "severity": "medium",
+            "field": null,
+            "evidence": "Safety information for strollers is not provided.",
+            "confidence": 1.0
+          }
+        ],
+        "suggested_fixes": [
+          {
+            "field": "title_ar",
+            "current": null,
+            "suggested": "عربة سفر خفيفة الوزن قابلة للطي بيد واحدة",
+            "reasoning": "Provide an Arabic title to match the English title.",
+            "confidence": 1.0
+          },
+          {
+            "field": "description_en",
+            "current": null,
+            "suggested": "Lightweight travel stroller that folds with one hand, perfect for air travel. Weighs only 5.5 kg.",
+            "reasoning": "Add an English description to provide necessary product details.",
+            "confidence": 1.0
+          },
+          {
+            "field": "attributes.safety_info",
+            "current": null,
+            "suggested": "Meets safety standards for strollers.",
+            "reasoning": "Include safety information relevant to stroller category.",
+            "confidence": 1.0
+          }
+        ],
+        "generated_ar_title": "عربة سفر خفيفة الوزن قابلة للطي بيد واحدة",
+        "generated_ar_description": null,
+        "model_used": "openai/gpt-4o-mini",
+        "audit_version": "0.1.0"
+      },
+      "score_band_hit": true,
+      "issue_recall_hit": true,
+      "issue_precision_hit": true,
+      "refusal_correct": true,
+      "schema_valid": true,
+      "elapsed_s": 7.96
+    },
+    {
+      "fixture": "17_image_only.json",
+      "passed": true,
+      "failures": [],
+      "audit_dict": {
+        "sku": "TOY-IMG-17",
+        "auditable": false,
+        "refusal_reason": "No content provided for title or description, making it impossible to audit.",
+        "quality_score": null,
+        "score_rationale": null,
+        "issues": [],
+        "suggested_fixes": [],
+        "generated_ar_title": null,
+        "generated_ar_description": null,
+        "model_used": "openai/gpt-4o-mini",
+        "audit_version": "0.1.0"
+      },
+      "score_band_hit": null,
+      "issue_recall_hit": true,
+      "issue_precision_hit": true,
+      "refusal_correct": true,
+      "schema_valid": true,
+      "elapsed_s": 4.77
+    }
+  ]
+}

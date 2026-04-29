@@ -1,0 +1,13 @@
+{
+  "sku": "TOY-XYZ-11",
+  "category": "toy",
+  "title_en": "Amazing Premium Toy — Best Quality, Must Have!",
+  "title_ar": "لعبة مميزة وممتازة — أفضل جودة، يجب اقتناؤها!",
+  "description_en": "The best toy for your baby. High quality. You will love it. Buy now!",
+  "description_ar": "أفضل لعبة لطفلك. جودة عالية. ستعجبك. اشترِ الآن!",
+  "image_url": "https://images.pexels.com/photos/3933029/pexels-photo-3933029.jpeg",
+  "attributes": {
+    "brand": "XYZ",
+    "material": "plastic"
+  }
+}

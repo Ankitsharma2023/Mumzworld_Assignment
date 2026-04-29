@@ -1,0 +1,13 @@
+{
+  "sku": "CST-GENERIC-10",
+  "category": "car_seat",
+  "title_en": "Universal Car Seat — Black",
+  "title_ar": "كرسي سيارة شامل — أسود",
+  "description_en": "Comfortable padded car seat suitable for daily use. Easy to install.",
+  "description_ar": "كرسي سيارة مبطّن ومريح للاستخدام اليومي. سهل التركيب.",
+  "image_url": "https://images.pexels.com/photos/3933028/pexels-photo-3933028.jpeg",
+  "attributes": {
+    "brand": "Generic",
+    "age_range": "0-4y"
+  }
+}

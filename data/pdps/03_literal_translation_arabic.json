@@ -1,0 +1,14 @@
+{
+  "sku": "DIA-ULTRA-03",
+  "category": "diaper",
+  "title_en": "UltraDry Diapers, Doctor Recommended, Size 3, 60 count",
+  "title_ar": "حفاضات الترا دراي، طبيب أوصى، الحجم 3، 60 العد",
+  "description_en": "Best diaper. Keeps baby dry. Premium quality.",
+  "description_ar": "أفضل حفاضة. يحافظ الطفل جاف. جودة ممتاز.",
+  "image_url": "https://images.pexels.com/photos/3661260/pexels-photo-3661260.jpeg",
+  "attributes": {
+    "brand": "UltraDry",
+    "size": "3",
+    "count_per_pack": 60
+  }
+}

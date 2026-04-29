@@ -1,0 +1,13 @@
+{
+  "sku": "CST-NUNA-04",
+  "category": "car_seat",
+  "title_en": "Nuna Pipa Lite — The Safest Car Seat Ever Made",
+  "title_ar": "كرسي سيارة نونا بيبا لايت — الأكثر أمانًا على الإطلاق",
+  "description_en": "Award-winning. Doctor recommended. Crash tested. Ultra-light frame for easy carrying.",
+  "description_ar": "حائز على جوائز. يوصي به الأطباء. مختبر للتصادم. هيكل خفيف للغاية لحمل مريح.",
+  "image_url": "https://images.pexels.com/photos/3933027/pexels-photo-3933027.jpeg",
+  "attributes": {
+    "brand": "Nuna",
+    "age_range": "0-12m"
+  }
+}

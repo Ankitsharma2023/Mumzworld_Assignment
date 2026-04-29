@@ -1,0 +1,16 @@
+{
+  "sku": "BTL-MAM-09",
+  "category": "bottle",
+  "title_en": "MAM Easy Start Anti-Colic Bottle 260ml",
+  "title_ar": "زجاجة مام إيزي ستارت المضادة للمغص 260 مل",
+  "description_en": "Vented base reduces colic symptoms in clinical observations. Self-sterilising in three minutes in the microwave. Wide neck for easy filling.",
+  "description_ar": "قاعدة بفتحات تهوية تساعد على تقليل أعراض المغص. تعقيم ذاتي في الميكروويف خلال ثلاث دقائق. فوهة واسعة لتسهيل التعبئة.",
+  "image_url": "https://images.pexels.com/photos/3933272/pexels-photo-3933272.jpeg",
+  "attributes": {
+    "brand": "MAM",
+    "material": "polypropylene",
+    "capacity_ml": 260,
+    "age_range": "0m+",
+    "bpa_free": true
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "sku": "TOY-WOOD-05",
+  "category": "toy",
+  "title_en": "Wooden Stacking Rings",
+  "title_ar": "حلقات تكديس خشبية",
+  "description_en": "Classic wooden stacking ring toy with bright non-toxic paints. Helps develop fine motor skills and color recognition.",
+  "description_ar": "لعبة تكديس حلقات خشبية كلاسيكية بألوان زاهية وآمنة. تساعد على تطوير المهارات الحركية الدقيقة والتعرّف على الألوان.",
+  "image_url": "https://images.pexels.com/photos/3933025/pexels-photo-3933025.jpeg",
+  "attributes": {
+    "brand": "EcoToys",
+    "material": "wood",
+    "small_parts_warning": false
+  }
+}

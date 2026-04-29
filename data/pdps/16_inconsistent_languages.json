@@ -1,0 +1,16 @@
+{
+  "sku": "STR-MIX-16",
+  "category": "stroller",
+  "title_en": "Lightweight Travel Stroller — One-Hand Fold",
+  "title_ar": null,
+  "description_en": null,
+  "description_ar": "عربة سفر خفيفة الوزن قابلة للطي بيد واحدة. مناسبة للسفر الجوي. وزن 5.5 كجم فقط.",
+  "image_url": "https://images.pexels.com/photos/3933026/pexels-photo-3933026.jpeg",
+  "attributes": {
+    "brand": "TravelMate",
+    "age_range": "6m+",
+    "max_weight_kg": 15,
+    "foldable": true,
+    "weight_kg": 5.5
+  }
+}

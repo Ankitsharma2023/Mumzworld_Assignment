@@ -1,0 +1,17 @@
+{
+  "sku": "STR-CYBEX-07",
+  "category": "stroller",
+  "title_en": "Cybex Mios — Sky Blue",
+  "title_ar": "سايبكس ميوس — أزرق سماوي",
+  "description_en": "Compact city stroller with one-hand fold. Suitable from 6 months.",
+  "description_ar": "عربة مدينة مدمجة قابلة للطي بيد واحدة. مناسبة من عمر 6 أشهر.",
+  "image_url": "https://images.pexels.com/photos/3661387/pexels-photo-3661387.jpeg",
+  "attributes": {
+    "brand": "Cybex",
+    "age_range": "6m+",
+    "max_weight_kg": 22,
+    "foldable": true,
+    "weight_kg": 5.9,
+    "color": "blush pink"
+  }
+}

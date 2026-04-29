@@ -1,0 +1,17 @@
+{
+  "sku": "BTL-MAM-13",
+  "category": "bottle",
+  "title_en": "MAM Anti-Colic Self-Sterilising Bottle 160ml",
+  "title_ar": "زجاجة مام المضادة للمغص ذاتية التعقيم 160 مل",
+  "description_en": "Vented base shown to reduce colic in MAM's clinical observations (Source: MAM 2018 study, ref. attribute). Self-sterilising via microwave in 3 minutes. BPA-free polypropylene.",
+  "description_ar": "قاعدة بفتحات تهوية أظهرت تقليلًا للمغص في الدراسة السريرية لشركة مام (المصدر: دراسة مام 2018، مذكورة في الخصائص). تعقيم ذاتي في الميكروويف خلال 3 دقائق. خالية من البيسفينول-A.",
+  "image_url": "https://images.pexels.com/photos/3933280/pexels-photo-3933280.jpeg",
+  "attributes": {
+    "brand": "MAM",
+    "material": "polypropylene",
+    "capacity_ml": 160,
+    "age_range": "0m+",
+    "bpa_free": true,
+    "study_reference": "MAM 2018 internal study"
+  }
+}
